@@ -1,0 +1,50 @@
+---
+all:
+  children:
+    CLOUDVISION:
+      hosts:
+        cvp:
+          # Ansible variables used by the ansible_avd and ansible_cvp roles to push configuration to devices via CVP
+          ansible_host: 10.31.100.4
+          ansible_user: svc_account
+          ansible_password: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjc0OTM4NTEzNDAyNjM2NTM2MDIsImRzbiI6ImFuc2libGUiLCJkc3QiOiJhY2NvdW50IiwiZXhwIjoxOTAxMjI0Nzk5LCJpYXQiOjE3NDQ4MDU1ODYsIm9naSI6Mywib2duIjoiRGVmYXVsdCIsInNpZCI6ImZjNDU4OWJmZWQxMTE5NDM5Y2EwNThhNzVhNjE5NDJlNzE1YTQzZWMwOWE5NjQzOTQzNzhmMTQyMjg1MGM5YTEtRDVOblFFYWstUTJLYkJDbTlYZGNvanRucDFfVnVDWGJIOUpHbG1XQSJ9.Jo2nc_OgAAB_Uq9vpKta0ocUbJPnTMG0Z0YIuhMnCDahUtTFtleSu03af3_fxIB3Y435f6e6v1K9AFAwE-rJwljfRED7MUlxtISFa5L5MCPek-h5IeYEz_8V-o5N0pu_PrlSLSw7ZWlyGEOdkA7REpVIXWN-P0VttWp19n9ugMoauXEJXWHxvMWjdqN5Gnwx-mk3anvA2XldlgMuGZXGEK_EeKmfmvHi8PbFrgDTJh6nkfw4Zj83_ScippoLm7PBthQLL09r7HqpEyJMI7Pm0tsO_SpRHHcMgjpOF-lmyBufSJxX-vf5JOq57j-g502oHZr2tkFb9tzOXdIbTvjpsO_v708yQdCx_ZsA3RvizevvzomOQI_M7p6VcL6rlanUQa85LqJnM0d3P3PO7iGKshXXMw9e58ArDnoWDkBSMZkbLQg3nri5qePeVDWifiYE9gklIS80m2_IPIYNxEg7-GoBHtCDHRkjUzKTwTDtezrjcFE_hbGMKB5y2OxyLhD_JuQfvcUpg1rYqxxud3_LqRHYcdGzrpT3F0OiX-mSG0vXt5nMINo9oqEByng-VjVzlidy1o7Rfi_H8ZjoZc0DQ4EDtLB6OHJmAy_jnf1pCbiv68KQfqAvgR27phJH6ZUciVBfFSoqKUFlRIlDlayLC5uNDOT-vhHY8U-Rwbs84Ng
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+
+    FABRIC:
+      children:
+        DC1:
+          children:
+            DC1_SPINES:
+              hosts:
+                dc1-spine1:
+                  ansible_host: 10.31.100.111
+                dc1-spine2:
+                  ansible_host: 10.31.100.112
+            DC1_L3_LEAVES:
+              hosts:
+                dc1-leaf1a:
+                  ansible_host: 10.31.100.101
+                dc1-leaf1b:
+                  ansible_host: 10.31.100.102
+                dc1-leaf2a:
+                  ansible_host: 10.31.100.103
+                dc1-leaf2b:
+                  ansible_host: 10.31.100.104
+#            DC1_L2_LEAVES:
+#              hosts:
+#                dc1-leaf1c:
+#                  ansible_host: 172.16.1.151
+#                dc1-leaf2c:
+#                  ansible_host: 172.16.1.152
+
+    NETWORK_SERVICES:
+      children:
+        DC1_L3_LEAVES:
+#        DC1_L2_LEAVES:
+    CONNECTED_ENDPOINTS:
+      children:
+        DC1_L3_LEAVES:
+#        DC1_L2_LEAVES:

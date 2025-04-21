@@ -1,20 +1,46 @@
 ---
-- name: Clenup CVP in default configuration
-  hosts: cvp
+#- name: Clenup CVP in default configuration
+#  hosts: cvp
+#  connection: local
+#  gather_facts: false
+#  collections:
+#    - arista.avd
+#    - arista.cvp
+#  tasks:
+#    - name: run CVP provisioning
+#      import_role:
+#        name: arista.avd.eos_config_deploy_cvp
+#      vars:
+##        container_root: 'DC1'
+##        configlets_prefix: 'AVD'
+##        device_filter: 'dc1-'
+##        state: absent
+#        cv_collection: v3 # (3)!
+#        fabric_name: FABRIC # (4)!
+
+        # Factory reset a device (moves the device to ZTP mode)
+- name: Factory reset device
+  hosts: CLOUDVISION
   connection: local
-  gather_facts: false
-  collections:
-    - arista.avd
-    - arista.cvp
+  gather_facts: no
+  vars:
+    CVP_DEVICES:
+      - fqdn: "dc1-leaf1a"
+        parentContainerName: ""
+      - fqdn: "dc1-leaf1b"
+        parentContainerName: ""
+      - fqdn: "dc1-leaf2a"
+        parentContainerName: ""
+      - fqdn: "dc1-leaf2b"
+        parentContainerName: ""
+      - fqdn: "dc1-spine1"
+        parentContainerName: ""
+      - fqdn: "dc1-spine2"
+        parentContainerName: ""
+
   tasks:
-    - name: run CVP provisioning
-      import_role:
-        name: arista.avd.eos_config_deploy_cvp
-      vars:
-#        container_root: 'DC1'
-#        configlets_prefix: 'AVD'
-#        device_filter: 'dc1-'
-#        state: absent
-        cv_collection: v3 # (3)!
-        fabric_name: FABRIC # (4)!
+  - name: remove device
+    arista.cvp.cv_device_v3:
+        devices: '{{CVP_DEVICES}}'
+        state: factory_reset
 

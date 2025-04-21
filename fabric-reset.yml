@@ -1,25 +1,6 @@
 ---
-#- name: Clenup CVP in default configuration
-#  hosts: cvp
-#  connection: local
-#  gather_facts: false
-#  collections:
-#    - arista.avd
-#    - arista.cvp
-#  tasks:
-#    - name: run CVP provisioning
-#      import_role:
-#        name: arista.avd.eos_config_deploy_cvp
-#      vars:
-##        container_root: 'DC1'
-##        configlets_prefix: 'AVD'
-##        device_filter: 'dc1-'
-##        state: absent
-#        cv_collection: v3 # (3)!
-#        fabric_name: FABRIC # (4)!
 
-        # Factory reset a device (moves the device to ZTP mode)
-- name: Factory reset device
+- name: Factory reset devices
   hosts: CLOUDVISION
   connection: local
   gather_facts: no
@@ -44,3 +25,44 @@
         devices: '{{CVP_DEVICES}}'
         state: factory_reset
 
+#  - name: Pause to wait until devcies are rebooted/rediscovered
+#    ansible.builtin.pause:
+#      minutes: 8
+#
+#- name: remove container topology on CVP
+#  hosts: CLOUDVISION
+#  connection: local
+#  gather_facts: no
+#  vars:
+#    verbose: False
+#    CVP_CONTAINERS:
+#        DC1_L3_LEAVES:
+#            parentContainerName: DC1
+#        DC1_SPINES:
+#            parentContainerName: DC1
+#        DC1:
+#            parentContainerName: FABRIC
+#        FABRIC:
+#            parentContainerName: Tenant
+#
+#  tasks:
+#    - name: 'running cv_container'
+#      arista.cvp.cv_container_v3:
+#        topology: "{{CVP_CONTAINERS}}"
+#        state: absent
+#
+#
+#  name: Delete configlets
+#  hosts: CLOUDVISION
+#  connection: local
+#  gather_facts: no
+#  vars:
+#    configlet_list:
+#      AVD-FABRIC-*
+# 
+#  tasks:
+#    - name: "delete config"
+#      arista.cvp.cv_configlet_v3:
+#        configlets: "{{configlet_list}}"
+#        state: absent
+#      register: cvp_configlet

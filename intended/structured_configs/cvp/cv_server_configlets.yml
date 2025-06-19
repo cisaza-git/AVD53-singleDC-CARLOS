@@ -1,5 +1,5 @@
 cvp_configlets:
-  AVD-DC1_dc1-leaf1a: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf1a: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -110,7 +110,7 @@ cvp_configlets:
     \     neighbor 10.255.1.97 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.97 description dc1-leaf1b_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf1b: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf1b: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -219,7 +219,7 @@ cvp_configlets:
     \     neighbor 10.255.1.96 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.96 description dc1-leaf1a_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf1c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf1c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -243,7 +243,7 @@ cvp_configlets:
     address 172.16.1.151/24\nno ip routing vrf MGMT\n!\nip route vrf MGMT 0.0.0.0/0
     172.16.1.1\n!\nntp local-interface vrf MGMT Management1\nntp server vrf MGMT 0.pool.ntp.org
     prefer\n!\nend\n"
-  AVD-DC1_dc1-leaf2a: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf2a: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -352,7 +352,7 @@ cvp_configlets:
     \     neighbor 10.255.1.101 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.101 description dc1-leaf2b_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf2b: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf2b: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -463,7 +463,7 @@ cvp_configlets:
     \     neighbor 10.255.1.100 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.100 description dc1-leaf2a_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf2c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-leaf2c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -487,7 +487,7 @@ cvp_configlets:
     address 172.16.1.152/24\nno ip routing vrf MGMT\n!\nip route vrf MGMT 0.0.0.0/0
     172.16.1.1\n!\nntp local-interface vrf MGMT Management1\nntp server vrf MGMT 0.pool.ntp.org
     prefer\n!\nend\n"
-  AVD-DC1_dc1-spine1: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-spine1: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
@@ -538,7 +538,7 @@ cvp_configlets:
     \  address-family evpn\n      neighbor EVPN-OVERLAY-PEERS activate\n   !\n   address-family
     ipv4\n      no neighbor EVPN-OVERLAY-PEERS activate\n      neighbor IPv4-UNDERLAY-PEERS
     activate\n!\nend\n"
-  AVD-DC1_dc1-spine2: "!\nno enable password\nno aaa root\n!\nusername admin privilege
+  AVD-FABRIC-_dc1-spine2: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
     carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec

@@ -1,12 +1,6 @@
+
+
 {
-    "name": "AVD Development",
-    "image": "ghcr.io/aristanetworks/avd/dev:python3.11",
-    "containerEnv": {
-        "AVD_GITHUB_REPO": "aristanetworks/avd",
-        "AVD_BRANCH_NAME": "devel"
-    },
-    // Run entrypoint script manually as it's ignored by dev container CLI otherwise.
-    // The dev entrypoint is used to install ansible collections and requirements, as they are not included with the dev version.
-    // "true" is required to exit "onCreateCommand" without entering ZSH.
-    "onCreateCommand": "/bin/entrypoint.sh true"
+    "name": "AVD Universal",
+    "image": "ghcr.io/aristanetworks/avd/universal:python3.11-avd-v5.4.0"
 }

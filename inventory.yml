@@ -13,6 +13,24 @@ all:
           ansible_httpapi_validate_certs: false
           ansible_network_os: eos
 
+#cvaas:
+#    CLOUDVISION:
+#      hosts:
+#        cv_server:
+#          ansible_httpapi_host: www.arista.io
+#          ansible_host: www.arista.io
+#          ansible_user: cvaas
+#          ansible_password: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjc0ODY1ODE3MzQ0NTMwMjk2MjYsImRzbiI6ImF2ZC10ZXN0IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTc4MDI2NDgwMCwiaWF0IjoxNzUwMTUwMjMxLCJvZ2kiOjcwODkzNDMxODEzNjM2MDY1MjcsIm9nbiI6InBwZyIsInNpZCI6ImIzZWFlOThmYzJlMDg1ZjEwOTNhMDM0NGVlZjI2MTdiNDdmYjg5MjY0NzU1MmVjYjY5MDdhODExZjBlYTc4YjQtN2ZYaTBPNzVYQTF1THBoX2J0dHlHMFRNTW9BQ2VkUGI5MGNfb2I4UiJ9.m7TKnuIzb2KM1ImWHHaPQp96FsHhr8E42g7-PrE_F99BXhuvq_zFgBPvadE1GdkA2I0m3ouQ17FKnvqK0gPCug
+#          ansible_connection: httpapi
+#          ansible_httpapi_use_ssl: true
+#          ansible_httpapi_validate_certs: false
+#          ansible_network_os: eos
+#          ansible_httpapi_port: 443
+#          # Configuration to get Virtual Env information
+#          ansible_python_interpreter: $(which python3)
+
+
+
     FABRIC:
       children:
         DC1:
@@ -21,24 +39,31 @@ all:
               hosts:
                 dc1-spine1:
                   ansible_host: 10.31.100.111
+                  is_deployed: false
                 dc1-spine2:
                   ansible_host: 10.31.100.112
+                  is_deployed: false
             DC1_L3_LEAVES:
               hosts:
                 dc1-leaf1a:
                   ansible_host: 10.31.100.101
+                  is_deployed: false
                 dc1-leaf1b:
                   ansible_host: 10.31.100.102
+                  is_deployed: false
                 dc1-leaf2a:
                   ansible_host: 10.31.100.103
+                  is_deployed: false
                 dc1-leaf2b:
                   ansible_host: 10.31.100.104
+                  is_deployed: false
 #            DC1_L2_LEAVES:
 #              hosts:
 #                dc1-leaf1c:
 #                  ansible_host: 172.16.1.151
 #                dc1-leaf2c:
 #                  ansible_host: 172.16.1.152
+
 
     NETWORK_SERVICES:
       children:

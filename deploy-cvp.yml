@@ -11,3 +11,8 @@
       vars:
         cv_collection: v3 # (3)!
         fabric_name: FABRIC # (4)!
+        container_root: 'DC1'
+        configlets_prefix: 'AVD-DC1'
+#        device_filter: 'DC1'
+#        execute_tasks: false
+#        is_deploy: false

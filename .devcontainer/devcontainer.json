@@ -2,5 +2,6 @@
 
 {
     "name": "AVD Universal",
-    "image": "ghcr.io/aristanetworks/avd/universal:python3.11-avd-v5.4.0"
+    "image": "ghcr.io/aristanetworks/avd/universal:python3.11-avd-v5.4.0",
+    "remoteUser": "avd"
 }

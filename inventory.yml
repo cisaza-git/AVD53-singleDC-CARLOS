@@ -29,8 +29,6 @@ all:
 #          # Configuration to get Virtual Env information
 #          ansible_python_interpreter: $(which python3)
 
-
-
     FABRIC:
       children:
         DC1:
@@ -39,31 +37,30 @@ all:
               hosts:
                 dc1-spine1:
                   ansible_host: 10.31.100.111
-                  is_deployed: false
+#                  is_deployed: false
                 dc1-spine2:
                   ansible_host: 10.31.100.112
-                  is_deployed: false
+#                  is_deployed: false
             DC1_L3_LEAVES:
               hosts:
                 dc1-leaf1a:
                   ansible_host: 10.31.100.101
-                  is_deployed: false
+#                  is_deployed: false
                 dc1-leaf1b:
                   ansible_host: 10.31.100.102
-                  is_deployed: false
+#                  is_deployed: false
                 dc1-leaf2a:
                   ansible_host: 10.31.100.103
-                  is_deployed: false
+#                  is_deployed: false
                 dc1-leaf2b:
                   ansible_host: 10.31.100.104
-                  is_deployed: false
+#                  is_deployed: false
 #            DC1_L2_LEAVES:
 #              hosts:
 #                dc1-leaf1c:
 #                  ansible_host: 172.16.1.151
 #                dc1-leaf2c:
 #                  ansible_host: 172.16.1.152
-
 
     NETWORK_SERVICES:
       children:

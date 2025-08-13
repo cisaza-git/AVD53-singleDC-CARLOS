@@ -219,30 +219,6 @@ cvp_configlets:
     \     neighbor 10.255.1.96 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.96 description dc1-leaf1a_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf1c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
-    15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
-    secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
-    carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
-    /usr/bin/TerminAttr -cvaddr=192.168.1.12:9910 -cvauth=token,/tmp/token -cvvrf=MGMT
-    -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
-    -taillogs\n   no shutdown\n!\nvlan internal order ascending range 1006 1199\n!\ntransceiver
-    qsfp default-mode 4x10G\n!\nservice routing protocols model multi-agent\n!\nhostname
-    dc1-leaf1c\nip name-server vrf MGMT 192.168.1.1\n!\nspanning-tree mode mstp\nspanning-tree
-    mst 0 priority 32768\n!\nvlan 11\n   name VRF10_VLAN11\n!\nvlan 12\n   name VRF10_VLAN12\n!\nvlan
-    21\n   name VRF11_VLAN21\n!\nvlan 22\n   name VRF11_VLAN22\n!\nvlan 3401\n   name
-    L2_VLAN3401\n!\nvlan 3402\n   name L2_VLAN3402\n!\nvrf instance MGMT\n!\nmanagement
-    api http-commands\n   protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no
-    shutdown\n!\ninterface Port-Channel1\n   description L2_DC1_L3_LEAF1_Port-Channel8\n
-    \  no shutdown\n   switchport trunk allowed vlan 11-12,21-22,3401-3402\n   switchport
-    mode trunk\n   switchport\n!\ninterface Ethernet1\n   description L2_dc1-leaf1a_Ethernet8\n
-    \  no shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
-    L2_dc1-leaf1b_Ethernet8\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet5\n   description SERVER_dc1-leaf1-server1_iLO\n   no shutdown\n   switchport
-    access vlan 11\n   switchport mode access\n   switchport\n   spanning-tree portfast\n!\ninterface
-    Management1\n   description OOB_MANAGEMENT\n   no shutdown\n   vrf MGMT\n   ip
-    address 172.16.1.151/24\nno ip routing vrf MGMT\n!\nip route vrf MGMT 0.0.0.0/0
-    172.16.1.1\n!\nntp local-interface vrf MGMT Management1\nntp server vrf MGMT 0.pool.ntp.org
-    prefer\n!\nend\n"
   AVD-DC1_dc1-leaf2a: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
@@ -463,30 +439,6 @@ cvp_configlets:
     \     neighbor 10.255.1.100 peer group MLAG-IPv4-UNDERLAY-PEER\n      neighbor
     10.255.1.100 description dc1-leaf2a_Vlan3010\n      redistribute connected route-map
     RM-CONN-2-BGP-VRFS\n!\nend\n"
-  AVD-DC1_dc1-leaf2c: "!\nno enable password\nno aaa root\n!\nusername admin privilege
-    15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
-    secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
-    carlos privilege 15 role network-admin nopassword\n!\ndaemon TerminAttr\n   exec
-    /usr/bin/TerminAttr -cvaddr=192.168.1.12:9910 -cvauth=token,/tmp/token -cvvrf=MGMT
-    -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
-    -taillogs\n   no shutdown\n!\nvlan internal order ascending range 1006 1199\n!\ntransceiver
-    qsfp default-mode 4x10G\n!\nservice routing protocols model multi-agent\n!\nhostname
-    dc1-leaf2c\nip name-server vrf MGMT 192.168.1.1\n!\nspanning-tree mode mstp\nspanning-tree
-    mst 0 priority 32768\n!\nvlan 11\n   name VRF10_VLAN11\n!\nvlan 12\n   name VRF10_VLAN12\n!\nvlan
-    21\n   name VRF11_VLAN21\n!\nvlan 22\n   name VRF11_VLAN22\n!\nvlan 3401\n   name
-    L2_VLAN3401\n!\nvlan 3402\n   name L2_VLAN3402\n!\nvrf instance MGMT\n!\nmanagement
-    api http-commands\n   protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no
-    shutdown\n!\ninterface Port-Channel1\n   description L2_DC1_L3_LEAF2_Port-Channel8\n
-    \  no shutdown\n   switchport trunk allowed vlan 11-12,21-22,3401-3402\n   switchport
-    mode trunk\n   switchport\n!\ninterface Ethernet1\n   description L2_dc1-leaf2a_Ethernet8\n
-    \  no shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
-    L2_dc1-leaf2b_Ethernet8\n   no shutdown\n   channel-group 1 mode active\n!\ninterface
-    Ethernet5\n   description SERVER_dc1-leaf2-server1_iLO\n   no shutdown\n   switchport
-    access vlan 11\n   switchport mode access\n   switchport\n   spanning-tree portfast\n!\ninterface
-    Management1\n   description OOB_MANAGEMENT\n   no shutdown\n   vrf MGMT\n   ip
-    address 172.16.1.152/24\nno ip routing vrf MGMT\n!\nip route vrf MGMT 0.0.0.0/0
-    172.16.1.1\n!\nntp local-interface vrf MGMT Management1\nntp server vrf MGMT 0.pool.ntp.org
-    prefer\n!\nend\n"
   AVD-DC1_dc1-spine1: "!\nno enable password\nno aaa root\n!\nusername admin privilege
     15 role network-admin nopassword\nusername ansible privilege 15 role network-admin
     secret sha512 $6$7u4j1rkb3VELgcZE$EJt2Qff8kd/TapRoci0XaIZsL4tFzgq1YZBLD9c6f/knXzvcYY0NcMKndZeCv0T268knGKhOEwZAxqKjlMm920\nusername
@@ -594,8 +546,14 @@ cvp_topology:
     devices: []
     parent_container: Tenant
   DC1_L3_LEAVES:
-    devices: []
+    devices:
+    - dc1-leaf1a
+    - dc1-leaf1b
+    - dc1-leaf2a
+    - dc1-leaf2b
     parent_container: DC1
   DC1_SPINES:
-    devices: []
+    devices:
+    - dc1-spine1
+    - dc1-spine2
     parent_container: DC1

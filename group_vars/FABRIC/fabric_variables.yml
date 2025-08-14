@@ -23,7 +23,7 @@ local_users:
     privilege: 15
     role: network-admin
     no_password: true
-  - name: carlos
+  - name: carlos2
     privilege: 15
     role: network-admin
     no_password: true

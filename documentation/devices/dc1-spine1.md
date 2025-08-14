@@ -139,7 +139,7 @@ management api http-commands
 | ---- | --------- | ---- | -------- | ----- |
 | admin | 15 | network-admin | False | - |
 | ansible | 15 | network-admin | False | - |
-| carlos | 15 | network-admin | False | - |
+| carlos2 | 15 | network-admin | False | - |
 
 #### Local Users Device Configuration
 
@@ -147,7 +147,7 @@ management api http-commands
 !
 username admin privilege 15 role network-admin nopassword
 username ansible privilege 15 role network-admin secret sha512 <removed>
-username carlos privilege 15 role network-admin nopassword
+username carlos2 privilege 15 role network-admin nopassword
 ```
 
 ### Enable Password
